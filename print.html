@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Python For Beginners</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="Intro.html"><strong aria-hidden="true">1.</strong> Intro</a></li><li class="chapter-item expanded "><a href="Installation.html"><strong aria-hidden="true">2.</strong> Installation</a></li><li class="chapter-item expanded "><a href="GettingStarted.html"><strong aria-hidden="true">3.</strong> Getting Started</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Python For Beginners</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="python-introduction"><a class="header" href="#python-introduction">Python Introduction</a></h1>
+<h2 id="what-is-python"><a class="header" href="#what-is-python">What is Python?</a></h2>
+<p>Python is a popular programming language. It was created by Guido van Rossum, and released in 1991.</p>
+<p>It is used for:</p>
+<ul>
+<li>web development (server-side),</li>
+<li>software development,</li>
+<li>mathematics,</li>
+<li>system scripting.</li>
+</ul>
+<h2 id="what-can-python-do"><a class="header" href="#what-can-python-do">What can Python do?</a></h2>
+<ul>
+<li>Python can be used on a server to create web applications.</li>
+<li>Python can be used alongside software to create workflows.</li>
+<li>Python can connect to database systems. It can also read and modify files.</li>
+<li>Python can be used to handle big data and perform complex mathematics.</li>
+<li>Python can be used for rapid prototyping, or for production-ready software development.</li>
+</ul>
+<h2 id="why-python"><a class="header" href="#why-python">Why Python?</a></h2>
+<ul>
+<li>Python works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc).</li>
+<li>Python has a simple syntax similar to the English language.</li>
+<li>Python has syntax that allows developers to write programs with fewer lines than some other programming languages.</li>
+<li>Python runs on an interpreter system, meaning that code can be executed as soon as it is written. This means that prototyping can be very quick.</li>
+<li>Python can be treated in a procedural way, an object-oriented way or a functional way.</li>
+</ul>
+<h2 id="good-to-know"><a class="header" href="#good-to-know">Good to know</a></h2>
+<ul>
+<li>The most recent major version of Python is Python 3, which we shall be using in this tutorial. However, Python 2, although not being updated with anything other than security updates, is still quite popular.</li>
+<li>In this tutorial Python will be written in a text editor. It is possible to write Python in an Integrated Development Environment, such as Thonny, Pycharm, Netbeans or Eclipse which are particularly useful when managing larger collections of Python files.</li>
+</ul>
+<h2 id="python-syntax-compared-to-other-programming-languages"><a class="header" href="#python-syntax-compared-to-other-programming-languages">Python Syntax compared to other programming languages</a></h2>
+<ul>
+<li>Python was designed for readability, and has some similarities to the English language with influence from mathematics.</li>
+<li>Python uses new lines to complete a command, as opposed to other programming languages which often use semicolons or parentheses.</li>
+<li>Python relies on indentation, using whitespace, to define scope; such as the scope of loops, functions and classes. Other programming languages often use curly-brackets for this purpose.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
+<p>In this section you’ll see how to install Python on Windows, macOS, Linux, iOS, and Android.</p>
+<h2 id="install-python-on-windows"><a class="header" href="#install-python-on-windows">Install Python on Windows</a></h2>
+<p>Since windows don’t come with Python preinstalled, it needs to be installed explicitly. Here we will define step by step tutorial on How to install Python on Windows. Follow the steps below :</p>
+<h3 id="download-python-latest-version-from-pythonorg"><a class="header" href="#download-python-latest-version-from-pythonorg">Download Python Latest Version from python.org</a></h3>
+<p><strong>Step 1:</strong> First and foremost step is to open a browser and type <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a></p>
+<p><strong>Step 2:</strong> Underneath the <strong>Python Releases for Windows</strong> find the <strong>Latest Python 3 Release – Python 3.10.5</strong> (the latest stable release as of now is Python 3.10.5).</p>
+<p><img src="./images/Python-Release-For-Windows.png" alt="Python Releases for Windows" /></p>
+<p><strong>Step 3:</strong> On this page move to <strong>Files</strong> and click on <strong>Windows x86-64 executable installer</strong> for 64-bit or <strong>Windows x86 executable installer</strong> for 32-bit.</p>
+<p><img src="./images/python-for-windows-installers.png" alt="Python Installers for Windows" /></p>
+<h4 id="here-we-are-providing-the-installation-process-of-python-3104-on-windows"><a class="header" href="#here-we-are-providing-the-installation-process-of-python-3104-on-windows">Here we are providing the installation process of Python 3.10.4 on Windows</a></h4>
+<ul>
+<li>Run the Python Installer for how to install python on windows downloads folder</li>
+<li>Make sure to mark Add Python 3.10 to PATH otherwise you will have to do it explicitly. It will start installing python on windows.</li>
+<li>After installation is complete click on Close. Bingo..!! Python is installed.</li>
+</ul>
+<p><img src="./images/install-python-on-windows.png" alt="install" /></p>
+<p>To verify your python installation, open your command prompt and run:</p>
+<pre><code class="language-bash">python --version
+</code></pre>
+<p>If python was installed correctly, you should get an output like this</p>
+<pre><code class="language-bash">Python 3.10.4
+</code></pre>
+<h2 id="install-python-on-linux"><a class="header" href="#install-python-on-linux">Install Python on Linux</a></h2>
+<p>Many linux distros have python preinstalled.
+To install Python in your linux machine open up your terminal and install <code>python3</code> with your system package manager.</p>
+<p>On my system (Debian) it's:</p>
+<pre><code class="language-bash">apt install python3
+</code></pre>
+<p>(Your package manager may vary depending on your system.)</p>
+<h2 id="install-python-on-macos"><a class="header" href="#install-python-on-macos">Install Python on MacOS</a></h2>
+<p>Python usually comes preinstalled in MacOS.</p>
+<p>To install Python open your terminal and run:</p>
+<pre><code>brew install python3
+</code></pre>
+<h2 id="install-python-on-android"><a class="header" href="#install-python-on-android">Install Python on Android</a></h2>
+<p>To install Python on Android first get the <strong>Termux</strong> app from <a href="https://f-droid.org/en/packages/com.termux/">F-Droid</a> or <a href="https://github.com/termux/termux-app/releases/tag/v0.118.0">Github Builds</a>.</p>
+<p><strong>Termux</strong> is a commandline emulator for Android. You can use many linux packages inside Termux.</p>
+<p>Open termux then run:</p>
+<pre><code>apt update &amp;&amp; apt upgrade
+</code></pre>
+<p>Then install Python with:</p>
+<pre><code>apt install python
+</code></pre>
+<p><strong>NOTE:</strong> Don't install Termux from Google Play Store. It's broken and no longer maintained!</p>
+<h2 id="install-python-on-ios"><a class="header" href="#install-python-on-ios">Install Python on IOS</a></h2>
+<p>To install Python on IOS get the <strong>iSH</strong> app from App Store.</p>
+<p><strong>iSH</strong> is a linux emulator for IOS. It runs a lightweight linux distro called Alpine Linux. So you can emulate anything inside it you could do on an Alpine Machine.</p>
+<p>Open iSH then run:</p>
+<pre><code>apk update &amp;&amp; apk upgrade
+</code></pre>
+<p>Then install Python with:</p>
+<pre><code>apk add python3
+</code></pre>
+<h2 id="verify-your-python-installation"><a class="header" href="#verify-your-python-installation">Verify your Python Installation</a></h2>
+<p>To verify your python installation open your terminal and run:</p>
+<pre><code class="language-bash">python3 --version
+</code></pre>
+<p>If everything was installed correctly you should see the version of your python installation.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<p>It's time to write our first python program.</p>
+<p>You can use any text editor to write your python code. I recommend using <a href="https://code.visualstudio.com/">Visual Studio Code</a> with the <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python Extension</a> for writing python code.</p>
+<p>You can also try <strong>NeoVim</strong> with the <a href="https://github.com/neoclide/coc.nvim">coc.nvim</a> and <a href="https://github.com/fannheyward/coc-pyright">PyRight</a> plugin which I will be using throughout this tutorial.</p>
+<h2 id="hello-world"><a class="header" href="#hello-world">Hello World</a></h2>
+<p>Let's write our first python program. Open up your favorite text editor and create a new file named <code>hello.py</code> and write the following code in it:</p>
+<pre><code class="language-python">print(&quot;Hello World&quot;)
+</code></pre>
+<p>Now save the file and run it from your terminal with:</p>
+<pre><code class="language-bash">$ python3 hello.py
+</code></pre>
+<p>You should see the following output:</p>
+<pre><code>Hello World
+</code></pre>
+<p>Interesting, right? Let's break down the code.</p>
+<p>In the above code we are asking python to print the text <code>Hello World</code> to the terminal.</p>
+<p>In python, we use the <code>print()</code> function to print something to the terminal. And whatever you put inside the parentheses, will be printed to the terminal.</p>
+<p>Notice that the text is wraped inside double quotes <code>&quot;&quot;</code>. It's necessary to wrap normal texts inside quotes.</p>
+<p>However, if you want to print a number, you don't need to wrap it inside quotes. For example:</p>
+<pre><code class="language-python">print(1)
+</code></pre>
+<p>Running the above code will print <code>1</code> to the terminal.</p>
+<h2 id="excercise"><a class="header" href="#excercise">Excercise</a></h2>
+<p>Write a program that prints your name to the terminal.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>
