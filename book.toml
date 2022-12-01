@@ -1,0 +1,11 @@
+[book]
+authors = ["Sunlight"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Python For Beginners"
+
+
+[preprocessor.toc]
+command = "mdbook-toc"
+renderer = ["html"]
