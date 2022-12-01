@@ -1,7 +1,7 @@
 # Installation
 
 
-In this section you’ll see how to install Python on Windows, macOS, Linux, iOS, and Android.
+In this section you’ll see how to install Python on [Windows](#install-python-on-windows), [macOS](#install-python-on-macos), [Linux](#install-python-on-linux), [Android](#install-python-on-android) and [iOS](#install-python-on-ios).
 
 ## Install Python on Windows
 Since windows don’t come with Python preinstalled, it needs to be installed explicitly. Here we will define step by step tutorial on How to install Python on Windows. Follow the steps below :
@@ -90,7 +90,7 @@ apk add python3
 
 ## Verify your Python Installation
 
-To verify your python installation open your terminal and run:
+To verify your python installation open your terminal app and run:
 ```bash
 python3 --version
 ```

@@ -10,6 +10,8 @@ It is used for:
 - mathematics,
 - system scripting.
 
+❗If you don't know what a programming language is, please read [this](https://en.m.wikipedia.org/wiki/Programming_language).
+
 ## What can Python do?
 - Python can be used on a server to create web applications.
 - Python can be used alongside software to create workflows.
