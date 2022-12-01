@@ -1,6 +1,7 @@
 # github actions workflow
 # run on push to main branch if src/** or sites.yml files changed 
 # run on pull request to main branch
+# run on manual trigger
 
 name: Build Book and Deploy
 
@@ -11,12 +12,16 @@ on:
     paths:
       - 'src/**'
       - '.github/**'
+
   pull_request:
     branches:
       - main
     paths:
       - 'src/**'
       - '.github/**'
+
+  workflow_dispatch:
+
 
 jobs:
   build:
